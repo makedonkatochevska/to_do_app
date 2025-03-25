@@ -1,6 +1,7 @@
 :root {
   --primary-bg: #fddbbb;
   --secondary-bg: #fff9bf;
+  --tertiary-bg: #f6f6f6;
   --text-color: #333;
   --button-bg: #333;
   --button-hover-bg: #555;
@@ -22,16 +23,18 @@ body {
     var(--secondary-bg)
   );
   background-size: 100% 200%;
-  animation: gradientAnimation 20s ease-in-out infinite;
+  animation: gradientAnimation 2s ease-in-out infinite;
 }
 
 @keyframes gradientAnimation {
   0% {
     background-size: 100% 200%;
   }
-
   50% {
     background-size: 150% 250%;
+  }
+  100% {
+    background-size: 100% 200%;
   }
 }
 
@@ -88,12 +91,14 @@ li {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 0;
-  border-bottom: 1px solid var(--border-color);
+  padding: 10px;
+  /* border: 1px solid var(--border-color); */
+  border-radius: 10px;
+  background-color: var(--tertiary-bg);
 }
 
-li:last-child {
-  border-bottom: none;
+li:not(:last-child) {
+  margin-bottom: 5px;
 }
 
 .done {

@@ -2,15 +2,12 @@
 const form = document.getElementById("form");
 const ulList = document.getElementById("todoList");
 
-//initial variables
-//const todos = [];
-const editIndex = -1;
-
 class ToDo {
   constructor(_title, _id = null) {
     this.title = _title;
     this.status = false;
     this.id = _id || Date.now();
+    this.isEditing = false;
   }
 }
 
@@ -72,6 +69,13 @@ function displayTasks() {
     label.textContent = todo.title;
     label.htmlFor = todo.id;
 
+    //Input field for editing task (Initially hidden)
+    const editInput = document.createElement("input");
+    editInput.type = "text";
+    editInput.value = todo.title;
+    editInput.classList.add("edit-input");
+    editInput.style.display = "none";
+
     //btns
     const btnsDiv = document.createElement("div");
 
@@ -79,6 +83,32 @@ function displayTasks() {
     const editBtn = document.createElement("button");
     editBtn.textContent = "Edit";
     editBtn.classList.add("button", "edit-button");
+
+    //edit btn event
+    editBtn.addEventListener("click", () => {
+      if (todo.isEditing) {
+        //if we're in edit mode, save the changes
+        const updatedTitle = editInput.value.trim();
+        if (updatedTitle) {
+          todo.title = updatedTitle;
+          label.textContent = updatedTitle;
+          todo.isEditing = false;
+          editInput.style.display = "none";
+          label.style.display = "inline-block";
+          editBtn.textContent = "Edit";
+        } else {
+          alert("Please enter a valid task name!");
+        }
+      } else {
+        //If we're not editing, start editing
+        todo.isEditing = true;
+        editInput.style.display = "inline-block";
+        label.style.display = "none";
+        editBtn.textContent = "Save";
+      }
+
+      console.log(toDoLibrary);
+    });
 
     //check status from storage and render it the same way
     if (todo.status) {
@@ -106,7 +136,7 @@ function displayTasks() {
     });
 
     btnsDiv.append(editBtn, deleteBtn);
-    li.append(checkbox, label, btnsDiv);
+    li.append(checkbox, label, editInput, btnsDiv);
     ulList.appendChild(li);
   });
 }
