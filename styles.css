@@ -109,6 +109,14 @@ li:last-child {
   cursor: pointer;
 }
 
+.button-disabled {
+  pointer-events: none;
+  opacity: 0.6;
+  background-color: rgb(54, 54, 54) !important;
+  color: white;
+  cursor: not-allowed;
+}
+
 .delete-button {
   background-color: var(--delete-button-bg);
 }
