@@ -97,6 +97,10 @@ li {
   background-color: var(--tertiary-bg);
 }
 
+label:hover {
+  cursor: pointer;
+}
+
 li:not(:last-child) {
   margin-bottom: 5px;
 }
