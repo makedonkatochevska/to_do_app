@@ -30,7 +30,6 @@ class ToDoLibrary {
 
 //library instance
 const toDoLibrary = new ToDoLibrary();
-const todos = toDoLibrary.todos;
 
 //store todos to array
 function storeTasks() {
@@ -50,7 +49,7 @@ function storeTasks() {
 function displayTasks() {
   ulList.innerHTML = "";
 
-  todos.forEach((todo) => {
+  toDoLibrary.todos.forEach((todo) => {
     const li = document.createElement("li");
 
     //Checkbox
@@ -58,11 +57,6 @@ function displayTasks() {
     checkbox.type = "checkbox";
     checkbox.id = todo.id;
     checkbox.hidden = true;
-
-    if (todo.status) {
-      li.classList.toggle("done");
-      editBtn.classList.toggle("button-disabled");
-    }
 
     //checkbox event
     checkbox.addEventListener("change", () => {
@@ -85,6 +79,12 @@ function displayTasks() {
     const editBtn = document.createElement("button");
     editBtn.textContent = "Edit";
     editBtn.classList.add("button", "edit-button");
+
+    //check status from storage and render it the same way
+    if (todo.status) {
+      li.classList.toggle("done");
+      editBtn.classList.toggle("button-disabled");
+    }
 
     //Delete btn
     const deleteBtn = document.createElement("button");
