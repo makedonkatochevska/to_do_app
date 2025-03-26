@@ -43,11 +43,11 @@ The **To-Do Application** is a simple web-based tool designed to help users orga
 
 Check out the live demo of the project hosted on Netlify:
 
-[Live Demo](https://to-do-application-makedonkatochevska.netlify.app/)
+<a href="https://to-do-application-makedonkatochevska.netlify.app/" target="_blank">Live Demo</a>
 
 Or see the pictures below for a quick preview of the page:
 
-![To Do App](https://i.imghippo.com/files/Xaiv5611QPw.png)
+<a href="https://i.imghippo.com/files/Xaiv5611QPw.png" target="_blank">To Do App</a>
 
 ---
 
