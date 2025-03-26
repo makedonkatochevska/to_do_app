@@ -6,6 +6,7 @@
   <summary>Click to expand</summary>
   - 📜 Project Description <br>
   - ⚙️ Technologies Used <br>
+  - 🎥 Demo <br>
   - 🔨 Installation <br>
   - 🚀 Usage <br>
   - 📝 Credits <br>
@@ -35,6 +36,18 @@ The **To-Do Application** is a simple web-based tool designed to help users orga
 - ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
 - ![Git](https://img.shields.io/badge/Git-F05032?style=flat-square&logo=git&logoColor=white)
 - ![LocalStorage](https://img.shields.io/badge/LocalStorage-323330?style=flat-square&logo=Google%20Chrome&logoColor=white)
+
+---
+
+## Demo 🎥
+
+Check out the live demo of the project hosted on Netlify:
+
+[Live Demo](https://to-do-application-makedonkatochevska.netlify.app/)
+
+Or see the pictures below for a quick preview of the page:
+
+![To Do App](https://i.imghippo.com/files/Xaiv5611QPw.png)
 
 ---
 
