@@ -1,3 +1,4 @@
+/* GENERAL CSS */
 :root {
   --primary-bg: #fddbbb;
   --secondary-bg: #fff9bf;
@@ -9,6 +10,7 @@
   --delete-button-hover-bg: #ff0000;
   --edit-button-bg: #66cc66;
   --edit-button-hover-bg: #44aa44;
+  --mark-all-bg: #28a745;
   --border-color: #ccc;
 }
 
@@ -38,15 +40,6 @@ body {
   }
 }
 
-.container {
-  max-width: 400px;
-  margin: 5em auto;
-  background-color: rgba(255, 255, 255, 0.9);
-  padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
 h1 {
   text-align: center;
   color: var(--text-color);
@@ -56,6 +49,16 @@ h1 {
   margin-bottom: 20px;
 }
 
+.container {
+  max-width: 400px;
+  margin: 5em auto;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* INPUT, LABEL AND UL/LI */
 .input-container {
   display: flex;
   margin-bottom: 20px;
@@ -71,15 +74,8 @@ input.todo-input {
   outline: none;
 }
 
-button.add-todo {
-  padding: 10px 20px;
-  background-color: var(--button-bg);
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
-}
-
-button:hover {
-  background-color: var(--button-hover-bg);
+input:not(:placeholder-shown) {
+  background-color: var(--secondary-bg);
 }
 
 ul {
@@ -92,7 +88,6 @@ li {
   justify-content: space-between;
   align-items: center;
   padding: 10px;
-  /* border: 1px solid var(--border-color); */
   border-radius: 10px;
   background-color: var(--tertiary-bg);
 }
@@ -110,6 +105,7 @@ li:not(:last-child) {
   text-decoration: line-through;
 }
 
+/* BTNs  */
 .button {
   color: #fff;
   border: none;
@@ -126,6 +122,18 @@ li:not(:last-child) {
   cursor: not-allowed;
 }
 
+button.add-todo {
+  padding: 10px 20px;
+  background-color: var(--button-bg);
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+button:hover {
+  background-color: var(--button-hover-bg);
+}
+
+/* DELETE BTN */
 .delete-button {
   background-color: var(--delete-button-bg);
 }
@@ -134,6 +142,7 @@ li:not(:last-child) {
   background-color: var(--delete-button-hover-bg);
 }
 
+/* EDIT BTN AND INPUT */
 .edit-input {
   margin-right: 1em;
   flex: 1;
@@ -150,4 +159,65 @@ li:not(:last-child) {
 
 .edit-button:hover {
   background-color: var(--edit-button-hover-bg);
+}
+
+/* CSS for the falling animation */
+@keyframes fallDown {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+}
+
+.falling {
+  animation: fallDown 0.5s ease forwards;
+}
+
+/* MARK ALL CHECKBOX */
+.all-checked-container {
+  align-items: center;
+  margin-top: 20px;
+}
+
+.all-checked-container input {
+  margin-right: 10px;
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  appearance: none;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+.all-checked-container input:checked {
+  background-color: var(--mark-all-bg);
+  border-color: var(--mark-all-bg);
+}
+
+.all-checked-container label {
+  cursor: pointer;
+  user-select: none;
+  color: #333;
+  transition: color 0.3s ease;
+  line-height: 1;
+}
+
+.all-checked-container label:hover {
+  color: var(--mark-all-bg);
+}
+
+.all-checked-container input:checked + label {
+  color: var(--mark-all-bg);
+}
+
+/* MEDIA QUERY */
+@media screen and (max-width: 450px) {
+  .container {
+    max-width: 80%;
+  }
 }

@@ -4,6 +4,7 @@
     <link rel="stylesheet" href="styles.css" />
     <title>To-Do Application</title>
     <link rel="icon" type="image/png" href="task.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
 
   <body>
@@ -14,7 +15,7 @@
           type="text"
           class="todo-input"
           id="todoInput"
-          placeholder="Add a new todo"
+          placeholder="Add a new to-do"
         />
         <button type="submit" class="button add-todo" id="addTodo">Add</button>
       </form>
@@ -29,6 +30,10 @@
           </div>
         </li> -->
       </ul>
+      <div class="all-checked-container">
+        <input type="checkbox" id="allChecked" />
+        <label for="allChecked">Mark all as done</label>
+      </div>
     </div>
     <script src="main.js"></script>
   </body>
