@@ -3,6 +3,7 @@ const form = document.getElementById("form");
 const ulList = document.getElementById("todoList");
 const allCheckedContainer = document.querySelector(".all-checked-container");
 const allCheckedInput = document.getElementById("allChecked");
+const alert = document.getElementById("alert");
 
 class ToDo {
   constructor(_title, _id = null, _status = false) {
@@ -52,12 +53,17 @@ const toDoLibrary = new ToDoLibrary();
 function storeTasks() {
   const toDoInputValue = form.todoInput.value.trim();
 
-  if (!toDoInputValue) return alert("Please Enter Valid Task Name!");
+  if (!toDoInputValue) {
+    alert.textContent = "Please enter valid task name!";
+    return;
+  }
 
   const newTask = new ToDo(toDoInputValue);
   toDoLibrary.addTask(newTask);
 
   form.todoInput.value = "";
+
+  alert.textContent = "";
 
   updateAllCheckedCheckbox();
 
@@ -67,6 +73,9 @@ function storeTasks() {
 //display todos
 function displayTasks() {
   ulList.innerHTML = "";
+
+  //check if no tasks are added
+  noTasksAdded();
 
   toDoLibrary.todos.forEach((todo) => {
     const li = document.createElement("li");
@@ -175,7 +184,10 @@ function displayTasks() {
         toDoLibrary.removeTask(todo.id);
         li.remove();
         markAllAsCheckedDisplay();
+        noTasksAdded();
       }, 500);
+
+      //if there are no tasks
 
       console.log(toDoLibrary);
     });
@@ -184,6 +196,13 @@ function displayTasks() {
     li.append(checkbox, label, editInput, btnsDiv);
     ulList.appendChild(li);
   });
+}
+
+//no tasks fnc
+function noTasksAdded() {
+  if (toDoLibrary.todos.length === 0) {
+    ulList.innerHTML = `<li>No tasks added yet!</li>`;
+  }
 }
 
 //mark all as checked fnc
