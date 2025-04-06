@@ -55,12 +55,14 @@ function storeTasks() {
 
   if (!toDoInputValue) {
     alert.textContent = "Please enter valid task name!";
+    document.getElementById("todoInput").classList.add("error-border");
     return;
   }
 
   const newTask = new ToDo(toDoInputValue);
   toDoLibrary.addTask(newTask);
 
+  document.getElementById("todoInput").classList.remove("error-border");
   form.todoInput.value = "";
 
   alert.textContent = "";

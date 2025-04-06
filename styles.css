@@ -63,6 +63,10 @@ h1 {
   color: red;
 }
 
+.error-border {
+  border-color: red !important;
+}
+
 /* INPUT, LABEL AND UL/LI */
 .input-container {
   display: flex;
